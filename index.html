@@ -632,7 +632,7 @@
                         {/* Spectrum matches */}
                         {Confection.spectrumMatches.length > 0 && (
                           <div>
-                            <span className="font-medium teal-text">Good match for:</span>
+                            <span className="font-medium teal-text">Well matched to:</span>
                             <span className="ml-1 teal-text">{Confection.spectrumMatches.join(', ')}</span>
                           </div>
                         )}
@@ -642,7 +642,7 @@
                   
                   {rankedCandies.filter(Confection => Confection.score > 0).length === 0 && (
                     <div className="text-center p-6 question-area">
-                      Select what you're looking for to get recommendations.
+                      Select features and preferences to view potential matching options.
                     </div>
                   )}
                 </div>
