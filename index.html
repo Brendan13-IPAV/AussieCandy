@@ -22,7 +22,7 @@
     :root {
       --dark-blue: #347D9C;
       --teal: #55ABC9;
-      --light-mint: #EBF5F9;
+      --light-mint: #F6FAFC;
     }
     
     /* Header */
@@ -563,15 +563,15 @@
                       
                       <div className="relative">
                         <div className="w-full flex justify-between text-xs text-gray-500 mb-1">
-                          <span>Strongly Dislike</span>
-                          <span>Neutral</span>
-                          <span>Strongly Like</span>
+                          <span>Not preferred</span>
+                          <span>No preferrence</span>
+                          <span>Preferred</span>
                         </div>
                         
                         <input
                           type="range"
-                          min="-5"
-                          max="5"
+                          min="-3"
+                          max="3"
                           step="1"
                           value={sliderValues[question]}
                           onChange={(e) => updateSliderValue(question, parseInt(e.target.value))}
