@@ -22,7 +22,7 @@
     :root {
       --dark-blue: #347D9C;
       --teal: #55ABC9;
-      --light-mint: #C8E4EE;
+      --light-mint: #EBF5F9;
     }
     
     /* Header */
@@ -506,11 +506,11 @@
 
       // Helper function to get the preference text label for sliders
       const getPreferenceLabel = (value) => {
-        if (value === 0) return "Neutral";
+        if (value === 0) return "No preference";
         if (value > 0) {
-          return value < 3 ? "Yes" : value < 5 ? "Strong preference" : "Definite preference";
+          return value < 3 ? "Slight preference" : value < 5 ? "Strongly preferred" : "Definitly preferred";
         } else {
-          return value > -3 ? "No" : value > -5 ? "Strongly not prefered" : "Definitely tot";
+          return value > -3 ? "Not preferred" : value > -5 ? "Strongly not preferred" : "Definitely not preferred";
         }
       };
 
