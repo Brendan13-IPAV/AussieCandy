@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Aussie Candy Finder</title>
+  <title>Aussie Confection Finder</title>
   <!-- React and ReactDOM -->
   <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
   <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
@@ -83,7 +83,7 @@
   <header class="header">
     <div class="content flex justify-between items-center">
       <div class="flex items-center">
-        <span class="font-bold text-xl">Aussie Candy Finder</span>
+        <span class="font-bold text-xl">Aussie Confection Finder</span>
       </div>
       <nav class="hidden md:block">
         <ul class="flex space-x-6">
@@ -99,13 +99,13 @@
   <!-- Simple footer -->
   <footer class="footer">
     <div class="content">
-      <p class="text-center text-sm">&copy; 2025 Aussie Candy Finder</p>
+      <p class="text-center text-sm">&copy; 2025 Aussie Confection Finder</p>
     </div>
   </footer>
   
   <!-- React Component -->
   <script type="text/babel">
-    const AussieCandyFinder = () => {
+    const AussieConfectionFinder = () => {
       // State for our data
       const [booleanQuestions, setBooleanQuestions] = React.useState([]);
       const [spectrumQuestions, setSpectrumQuestions] = React.useState([]);
@@ -132,7 +132,7 @@
       };
 
       // Hardcoded data
-      const candyData = {
+      const ConfectionData = {
         candies: [
           {
             name: "Cherry Ripe",
@@ -178,7 +178,7 @@
           },
           {
             name: "Minties",
-            description: "chewy peppermint-flavored candy",
+            description: "chewy peppermint-flavored Confection",
             scores: {
               "Chocolate preference": 0,
               "Desired chewiness": 3,
@@ -206,7 +206,7 @@
           },
           {
             name: "Freckles",
-            description: "chocolate discs covered in candy sprinkles",
+            description: "chocolate discs covered in Confection sprinkles",
             scores: {
               "Chocolate preference": 2,
               "Desired chewiness": 0,
@@ -234,7 +234,7 @@
           },
           {
             name: "Redskins",
-            description: "raspberry-flavored chewy candy",
+            description: "raspberry-flavored chewy Confection",
             scores: {
               "Chocolate preference": 0,
               "Desired chewiness": 3,
@@ -248,7 +248,7 @@
           },
           {
             name: "Wizz Fizz",
-            description: "sherbet powder candy",
+            description: "sherbet powder Confection",
             scores: {
               "Chocolate preference": 0,
               "Desired chewiness": 0,
@@ -318,7 +318,7 @@
           },
           {
             name: "Musk Sticks",
-            description: "pink, musk-flavored candy sticks",
+            description: "pink, musk-flavored Confection sticks",
             scores: {
               "Chocolate preference": 0,
               "Desired chewiness": 0,
@@ -365,13 +365,13 @@
           initialSliders[question] = 0;
         });
         
-        setCandies(candyData.candies);
+        setCandies(ConfectionData.candies);
         setCheckboxSelections(initialCheckboxes);
         setSliderValues(initialSliders);
         setLoading(false);
       }, []);
 
-      // Calculate candy rankings whenever selections or slider values change
+      // Calculate Confection rankings whenever selections or slider values change
       React.useEffect(() => {
         if (loading) return;
         
@@ -384,8 +384,8 @@
           
           // If no selections (checkboxes or sliders), all candies are shown with zero score
           if (selectedBooleanQuestions.length === 0 && activeSpectrumQuestions.length === 0) {
-            return candies.map(candy => ({
-              ...candy,
+            return candies.map(Confection => ({
+              ...Confection,
               score: 0,
               booleanMatches: [],
               booleanNonMatches: [],
@@ -394,15 +394,15 @@
             }));
           }
           
-          const ranked = candies.map(candy => {
+          const ranked = candies.map(Confection => {
             // Track boolean matches/non-matches
             const booleanMatches = [];
             const booleanNonMatches = [];
             let booleanScore = 0;
             
-            // For each selected checkbox question, check if candy scores > 0
+            // For each selected checkbox question, check if Confection scores > 0
             selectedBooleanQuestions.forEach(question => {
-              if ((candy.scores[question] || 0) > 0) {
+              if ((Confection.scores[question] || 0) > 0) {
                 booleanMatches.push(question);
                 booleanScore++;
               } else {
@@ -423,7 +423,7 @@
             
             // Calculate spectrum match score
             activeSpectrumQuestions.forEach(question => {
-              const candyValue = candy.scores[question] || 0;
+              const ConfectionValue = Confection.scores[question] || 0;
               const preferenceValue = sliderValues[question];
               
               // Convert preference (-5 to 5) to expected score (0 to 3)
@@ -431,10 +431,10 @@
                 ? (preferenceValue / 5) * 3  // Map 1-5 to 0.6-3
                 : 0;  // Negative values mean user doesn't want this
               
-              // Calculate match (higher when candy matches expected value)
+              // Calculate match (higher when Confection matches expected value)
               const match = (preferenceValue > 0)
-                ? Math.max(0, 3 - Math.abs(expectedValue - candyValue))
-                : Math.max(0, 3 - candyValue);  // Reward low scores for negative preferences
+                ? Math.max(0, 3 - Math.abs(expectedValue - ConfectionValue))
+                : Math.max(0, 3 - ConfectionValue);  // Reward low scores for negative preferences
               
               // Track if this is a good match
               const isGoodMatch = match > 1.5;
@@ -460,7 +460,7 @@
             const combinedScore = (booleanPercentage + spectrumPercentage) / 2;
             
             return {
-              ...candy,
+              ...Confection,
               score: combinedScore,
               booleanMatches,
               booleanNonMatches,
@@ -590,57 +590,57 @@
                 <h2 className="text-xl font-semibold mb-4 teal-text">Recommended Candies</h2>
                 
                 <div className="space-y-4 max-h-[600px] overflow-y-auto">
-                  {rankedCandies.filter(candy => candy.score > 0).map((candy, index) => (
+                  {rankedCandies.filter(Confection => Confection.score > 0).map((Confection, index) => (
                     <div 
                       key={index} 
                       className="p-3 border rounded"
                       style={{ borderLeftWidth: '4px', borderLeftColor: '#25A9BC' }}
                     >
                       <div className="flex justify-between">
-                        <h3 className="font-semibold">{candy.name}</h3>
+                        <h3 className="font-semibold">{Confection.name}</h3>
                         <span className="text-sm px-2 py-0.5 rounded-full bg-gray-100">
-                          {Math.round(candy.score)}%
+                          {Math.round(Confection.score)}%
                         </span>
                       </div>
                       
-                      <p className="text-sm text-gray-600 mb-2">{candy.description}</p>
+                      <p className="text-sm text-gray-600 mb-2">{Confection.description}</p>
                       
                       <div className="w-full bg-gray-200 rounded-full h-2 mb-3">
                         <div 
                           className="teal-bg h-2 rounded-full" 
-                          style={{ width: `${Math.min(100, Math.round(candy.score))}%` }}
+                          style={{ width: `${Math.min(100, Math.round(Confection.score))}%` }}
                         ></div>
                       </div>
                       
                       <div className="text-xs space-y-1">
                         {/* Boolean matches */}
-                        {candy.booleanMatches.length > 0 && (
+                        {Confection.booleanMatches.length > 0 && (
                           <div>
                             <span className="font-medium text-green-600">Features:</span>
-                            <span className="ml-1 text-green-600">{candy.booleanMatches.join(', ')}</span>
+                            <span className="ml-1 text-green-600">{Confection.booleanMatches.join(', ')}</span>
                           </div>
                         )}
                         
                         {/* Boolean non-matches */}
-                        {candy.booleanNonMatches.length > 0 && (
+                        {Confection.booleanNonMatches.length > 0 && (
                           <div>
                             <span className="font-medium text-red-500">Missing:</span>
-                            <span className="ml-1 text-red-500">{candy.booleanNonMatches.join(', ')}</span>
+                            <span className="ml-1 text-red-500">{Confection.booleanNonMatches.join(', ')}</span>
                           </div>
                         )}
                         
                         {/* Spectrum matches */}
-                        {candy.spectrumMatches.length > 0 && (
+                        {Confection.spectrumMatches.length > 0 && (
                           <div>
                             <span className="font-medium teal-text">Good match for:</span>
-                            <span className="ml-1 teal-text">{candy.spectrumMatches.join(', ')}</span>
+                            <span className="ml-1 teal-text">{Confection.spectrumMatches.join(', ')}</span>
                           </div>
                         )}
                       </div>
                     </div>
                   ))}
                   
-                  {rankedCandies.filter(candy => candy.score > 0).length === 0 && (
+                  {rankedCandies.filter(Confection => Confection.score > 0).length === 0 && (
                     <div className="text-center p-6 question-area">
                       Select what you're looking for to get recommendations.
                     </div>
@@ -654,7 +654,7 @@
     };
 
     // Render the component
-    ReactDOM.render(<AussieCandyFinder />, document.getElementById('root'));
+    ReactDOM.render(<AussieConfectionFinder />, document.getElementById('root'));
   </script>
 </body>
 </html>
