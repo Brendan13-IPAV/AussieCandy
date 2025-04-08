@@ -22,19 +22,19 @@
     :root {
       --dark-blue: #347D9C;
       --teal: #55ABC9;
-      --light-mint: #E9F6F7;
+      --light-mint: #C8E4EE;
     }
     
     /* Header */
     .header {
-      background-color: var(--dark-blue);
+      background-color: #1F242C; // var(--dark-blue);
       color: white;
       padding: 1rem;
     }
     
     /* Footer */
     .footer {
-      background-color: var(--dark-blue);
+      background-color: #1F242C; // var(--dark-blue);
       color: white;
       padding: 1rem;
       margin-top: 2rem;
@@ -587,7 +587,7 @@
             {/* Right column - results */}
             <div>
               <div className="bg-white p-4 rounded shadow-sm">
-                <h2 className="text-xl font-semibold mb-4 teal-text">Recommended Candies</h2>
+                <h2 className="text-xl font-semibold mb-4 teal-text">Options to consider</h2>
                 
                 <div className="space-y-4 max-h-[600px] overflow-y-auto">
                   {rankedCandies.filter(Confection => Confection.score > 0).map((Confection, index) => (
