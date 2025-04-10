@@ -596,21 +596,18 @@
                       className="p-3 border rounded"
                       style={{ borderLeftWidth: '4px', borderLeftColor: '#25A9BC' }}
                     >
-                      <div className="flex justify-between">
-                        <h3 className="font-semibold">{Confection.name}</h3>
-                        <span className="text-sm px-2 py-0.5 rounded-full bg-gray-100">
-                          {Math.round(Confection.score)}%
-                        </span>
-                      </div>
+<div>
+  <h3 className="font-semibold">{Confection.name}</h3>
+</div>
                       
                       <p className="text-sm text-gray-600 mb-2">{Confection.description}</p>
                       
-                      <div className="w-full bg-gray-200 rounded-full h-2 mb-3">
+{/*                       <div className="w-full bg-gray-200 rounded-full h-2 mb-3">
                         <div 
                           className="teal-bg h-2 rounded-full" 
                           style={{ width: `${Math.min(100, Math.round(Confection.score))}%` }}
                         ></div>
-                      </div>
+                      </div> */}
                       
                       <div className="text-xs space-y-1">
                         {/* Boolean matches */}
